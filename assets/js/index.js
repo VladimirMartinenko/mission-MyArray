@@ -24,14 +24,14 @@ function MyArray() {
 }*/
   this.forEach = function (callback) {
     for (let i = 0; i < this.length; i++) {
-      callback(i, this[i], this);
+      callback(this[i],i,this);
     }
   };
   this.map = function (callback) {
-    let result = []
+    let result = new MyArray()
     for (let i = 0; i < this.length; i++) {
-      let current = callback(i, this[i], this);
-      result[i]=current;
+      let current = callback(this[i],i,this);
+      result.push(current);
     }
         return result;
   };

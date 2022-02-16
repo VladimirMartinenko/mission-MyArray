@@ -35,6 +35,24 @@ function MyArray() {
     }
         return result;
   };
+  this.shift = function () {
+    let meaning = this[0];
+    delete this[0];
+    this.length--;
+    for (let i = 0; i < this.length; i++){
+      this[i] =  this[i+1];
+      
+    }
+    delete this[this.length];
+    return meaning;
+  }
+  this.unshift = function () {
+    
+    for (let i = 0; i < this.length; i++){
+      
+        this[i] =  this[i+1];
+        }
+  }
 }
 const arr = new MyArray();
 arr.push(2);
@@ -47,4 +65,4 @@ function callback(i, item, arr) {
 const newArr = arr.map(callback);
 function callback(i, item, arr) {
   return i,item;
-  };
+  }

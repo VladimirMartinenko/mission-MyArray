@@ -1,12 +1,13 @@
-function MyArray() {
+class MyArray {
+  constructor(){
   this.length = 0;
-
-  this.push = function (value) {
+}
+  push = function (value) {
     this[this.length] = value;
     this.length++;
     return this.length;
   };
-  this.pop = function () {
+  pop = function () {
     if (this.length > 0) {
       const number = this[this.length - 1];
       delete this[this.length - 1];
@@ -16,17 +17,17 @@ function MyArray() {
       return undefined;
     }
   };
-  this.forEach = function () {
+  forEach = function () {
     for (let i = 0; i < this.length; i++) {
       console.log(`${i}:${this[i]}`);
     }
   };
-  this.forEach = function (callback) {
+  forEach = function (callback) {
     for (let i = 0; i < this.length; i++) {
       callback(this[i], i, this);
     }
   };
-  this.map = function (callback) {
+  map = function (callback) {
     let result = new MyArray();
     for (let i = 0; i < this.length; i++) {
       let current = callback(this[i], i, this);
@@ -34,7 +35,7 @@ function MyArray() {
     }
     return result;
   };
-  this.shift = function () {
+  shift = function () {
     let meaning = this[0];
     delete this[0];
     this.length--;
@@ -44,7 +45,7 @@ function MyArray() {
     delete this[this.length];
     return meaning;
   };
-  this.unshift = function (...rst) {
+  unshift = function (...rst) {
     if (rst.length === 0) {
       throw new RangeError("Введите значение");
     }
@@ -57,7 +58,7 @@ function MyArray() {
     this.length += rst.length;
     return this.length;
   };
-  this.reverse = function () {
+  reverse = function () {
     for (let i = 0; i < this.length / 2; i++) {
       let meaning = this[i];
       this[i] = this[this.length - 1 - i];
@@ -65,7 +66,7 @@ function MyArray() {
     }
     return this;
   };
-  this.concat = function (arr2) {
+  concat = function (arr2) {
     let newArr = new MyArray();
     for (let i = 0; i < this.length; i++) {
       newArr[i] = this[i];

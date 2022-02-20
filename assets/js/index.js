@@ -2,6 +2,9 @@ class MyArray {
   constructor(){
   this.length = 0;
 }
+ static isMyArray = function(arg){
+   return arg instanceof this;
+}
   push = function (value) {
     this[this.length] = value;
     this.length++;

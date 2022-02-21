@@ -1,16 +1,16 @@
 class MyArray {
-  constructor(){
-  this.length = 0;
-}
- static isMyArray = function(arg){
-   return arg instanceof this;
-}
-  push = function (value) {
+  constructor() {
+    this.length = 0;
+  }
+  static isMyArray(arg) {
+    return arg instanceof this;
+  }
+  push(value) {
     this[this.length] = value;
     this.length++;
     return this.length;
-  };
-  pop = function () {
+  }
+  pop() {
     if (this.length > 0) {
       const number = this[this.length - 1];
       delete this[this.length - 1];
@@ -19,26 +19,26 @@ class MyArray {
     } else {
       return undefined;
     }
-  };
-  forEach = function () {
+  }
+  forEach() {
     for (let i = 0; i < this.length; i++) {
       console.log(`${i}:${this[i]}`);
     }
-  };
-  forEach = function (callback) {
+  }
+  forEach(callback) {
     for (let i = 0; i < this.length; i++) {
       callback(this[i], i, this);
     }
-  };
-  map = function (callback) {
+  }
+  map(callback) {
     let result = new MyArray();
     for (let i = 0; i < this.length; i++) {
       let current = callback(this[i], i, this);
       result.push(current);
     }
     return result;
-  };
-  shift = function () {
+  }
+  shift() {
     let meaning = this[0];
     delete this[0];
     this.length--;
@@ -47,8 +47,8 @@ class MyArray {
     }
     delete this[this.length];
     return meaning;
-  };
-  unshift = function (...rst) {
+  }
+  unshift(...rst) {
     if (rst.length === 0) {
       throw new RangeError("Введите значение");
     }
@@ -60,16 +60,16 @@ class MyArray {
     }
     this.length += rst.length;
     return this.length;
-  };
-  reverse = function () {
+  }
+  reverse() {
     for (let i = 0; i < this.length / 2; i++) {
       let meaning = this[i];
       this[i] = this[this.length - 1 - i];
       this[this.length - 1 - i] = meaning;
     }
     return this;
-  };
-  concat = function (arr2) {
+  }
+  concat(arr2) {
     let newArr = new MyArray();
     for (let i = 0; i < this.length; i++) {
       newArr[i] = this[i];
@@ -79,7 +79,7 @@ class MyArray {
     }
     newArr.length = this.length + arr2.length;
     return newArr;
-  };
+  }
 }
 const arr = new MyArray();
 arr.push(2);

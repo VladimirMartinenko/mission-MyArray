@@ -20,11 +20,7 @@ class MyArray {
       return undefined;
     }
   }
-  forEach() {
-    for (let i = 0; i < this.length; i++) {
-      console.log(`${i}:${this[i]}`);
-    }
-  }
+
   forEach(callback) {
     for (let i = 0; i < this.length; i++) {
       callback(this[i], i, this);
@@ -39,14 +35,18 @@ class MyArray {
     return result;
   }
   shift() {
-    let meaning = this[0];
-    delete this[0];
-    this.length--;
-    for (let i = 0; i < this.length; i++) {
-      this[i] = this[i + 1];
+    if (this.length > 0) {
+      let meaning = this[0];
+      //delete this[0];
+      this.length--;
+      for (let i = 0; i < this.length; i++) {
+        this[i] = this[i + 1];
+      }
+      delete this[this.length];
+      return meaning;
+    } else {
+      return undefined;
     }
-    delete this[this.length];
-    return meaning;
   }
   unshift(...rst) {
     if (rst.length === 0) {
